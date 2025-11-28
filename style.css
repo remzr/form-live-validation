@@ -1,3 +1,67 @@
 body {
     background-color: blanchedalmond;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+}
+
+form {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    padding: 32px;
+    border-radius: 16px;
+}
+legend {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+
+input, select {
+    margin-bottom: 16px;
+}
+
+#submit-button, #password {
+    margin-bottom: 8px;
+}
+
+#password-repeat {
+    margin-bottom: 32px;
+}
+
+select, input {
+    height: 24px;
+    font-size: 1rem;
+}
+
+#submit-button {
+    width: fit-content;
+    height: 32px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#submit-button:hover {
+    background-color: rgb(192, 35, 35);
+}
+
+#country {
+    height: 32px
+}
+
+label {
+    margin-bottom: 4px;
+    color: rgb(68, 53, 53);
+    font-size: 0.8rem;
 }
