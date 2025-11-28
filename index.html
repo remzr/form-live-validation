@@ -7,6 +7,23 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <script src="form-validation.js" rel="javascript"></script>
+    <form>
+        <label for="email">Email: </label>
+        <input type="text" id="email" />
+        <label for="country">Country: </label>
+        <select id="country">
+            <option value="ch">Switzerland</option>
+            <option value="fr">France</option>
+            <option value="de">Germany</option>
+            <option value="at">Austria</option>
+            <option value="li">Lichtenstein</option>
+        </select>
+        <label for="password">Password: </label>
+        <input type="password" id="password" />
+        <label for="password-repeat">Repeat password: </label>
+        <input type="password" id="password-repeat">
+        <input type="submit" value="validate" />
+    </form>
+<script src="form-validation.js" rel="javascript"></script>
 </body>
 </html>
