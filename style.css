@@ -65,3 +65,19 @@ label {
     color: rgb(68, 53, 53);
     font-size: 0.8rem;
 }
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    gap: 16px;
+}
+
+.form-stack {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}

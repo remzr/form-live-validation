@@ -11,14 +11,22 @@
         <legend>Signup for this</legend>
         <label for="email">Email: </label>
         <input type="text" id="email" />
-        <label for="country">Country: </label>
-        <select id="country">
-            <option value="ch">Switzerland</option>
-            <option value="fr">France</option>
-            <option value="de">Germany</option>
-            <option value="at">Austria</option>
-            <option value="li">Lichtenstein</option>
-        </select>
+        <fieldset>
+            <div class="form-stack">
+                <label for="postal-code">Postal code: </label>
+                <input type="text" id="postal-code" />
+            </div>    
+            <div class="form-stack">
+                <label for="country">Country: </label>
+                <select id="country">
+                    <option value="ch">Switzerland</option>
+                    <option value="fr">France</option>
+                    <option value="de">Germany</option>
+                    <option value="at">Austria</option>
+                    <option value="li">Lichtenstein</option>
+                </select>
+            </div>
+        </fieldset>
         <label for="password">Password: </label>
         <input type="password" id="password" />
         <label for="password-repeat">Repeat password: </label>
