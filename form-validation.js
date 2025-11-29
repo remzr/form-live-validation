@@ -7,6 +7,9 @@
 const countrySelect = document.getElementById("country");
 const postalCodeField = document.getElementById("postal-code");
 
+countrySelect.addEventListener("change", checkPostalCode);
+postalCodeField.addEventListener("input", checkPostalCode);
+
 function checkPostalCode() {
     const constraints = {
         ch: [
@@ -31,6 +34,11 @@ function checkPostalCode() {
         ]
     };
 }
+
+const country = countrySelect.value;
+
+const constraint = new RegExp(constraints[country][0], "");
+console.log(constraint);
 
 //Password validation
 //Min: 8 digits, 1 number, 1 letter, max 30 digits
