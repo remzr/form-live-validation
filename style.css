@@ -23,24 +23,18 @@ legend {
 }
 
 input, select {
-    margin-bottom: 16px;
-}
-
-#submit-button, #password {
-    margin-bottom: 8px;
-}
-
-#password-repeat {
-    margin-bottom: 32px;
+    border: 1px rgb(68, 53, 53) solid;
 }
 
 select, input {
     height: 24px;
     font-size: 1rem;
+    width: 100%;
 }
 
 #submit-button {
     width: fit-content;
+    margin-top: 16px;
     height: 32px;
     padding-left: 24px;
     padding-right: 24px;
@@ -61,6 +55,10 @@ select, input {
 }
 
 label {
+    margin-bottom: 16px;
+}
+
+label>div {
     margin-bottom: 4px;
     color: rgb(68, 53, 53);
     font-size: 0.8rem;
@@ -80,4 +78,22 @@ fieldset {
     display: flex;
     flex-direction: column;
     width: 100%;
+}
+
+/* invalid fields */
+input:invalid {
+    border-color: #990000;
+    background-color: #ffdddd;
+}
+
+input:focus:invalid {
+    outline: none;
+}
+
+/* error message styles */
+.error {
+    width: 100%;
+    padding: 0;
+    font-size: 80%;
+    color: rgb(192, 35, 35);
 }

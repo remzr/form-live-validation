@@ -7,17 +7,18 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <form>
+    <form novalidate>
         <legend>Signup for this</legend>
-        <label for="email">Email: </label>
-        <input type="text" id="email" />
+        
+        <label for="email">
+            <div>Email:</div>
+            <input type="email" id="email" name="mail" required minlength="8"/>
+            <span class="error" aria-live="polite"></span>        
+        </label>
+        
         <fieldset>
-            <div class="form-stack">
-                <label for="postal-code">Postal code: </label>
-                <input type="text" id="postal-code" />
-            </div>    
-            <div class="form-stack">
-                <label for="country">Country: </label>
+            <label class="form-stack" for="country">
+                <div>Country: </div>
                 <select id="country">
                     <option value="ch">Switzerland</option>
                     <option value="fr">France</option>
@@ -25,12 +26,27 @@
                     <option value="at">Austria</option>
                     <option value="li">Lichtenstein</option>
                 </select>
-            </div>
+            </label>
+            
+            <label class="form-stack" for="postal-code">
+                <div>Postal Code: </div>
+                <input type="text" id="postal-code" />
+                <span class="error" aria-live="polite"></span>
+            </label>
         </fieldset>
-        <label for="password">Password: </label>
-        <input type="password" id="password" />
-        <label for="password-repeat">Repeat password: </label>
-        <input type="password" id="password-repeat">
+        
+        <label for="password">
+            <div>Password: </div>
+            <input type="password" id="password" />
+            <span class="error" aria-live="polite"></span>
+        </label>
+
+        <label for="password-repeat">
+            <div>Repeat password: </div>
+            <input type="password" id="password-repeat">
+            <span class="error" aria-live="polite"></span>
+        </label>
+
         <input type="submit" id="submit-button" value="Signup now" />
     </form>
 <script src="form-validation.js" rel="javascript"></script>

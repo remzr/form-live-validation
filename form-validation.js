@@ -1,3 +1,17 @@
+//Email validation
+//this@provider.com or this@server (local)
+const form = document.querySelector("form");
+const email = document.getElementById("email");
+const emailError = document.querySelector("#email + span.error");
+
+email.addEventListener("input", (event)=> {
+    if (email.validity.valid) {
+        emailError.textContent = ""; //Remove message if mail is valid
+    } else {
+        showError();
+    }
+});
+
 //Postal code validation
 //CH - 4 digits - 2502
 //AT - 4 digits - 1020 (First digit shows district, but this is not important for validation)
@@ -33,7 +47,7 @@ function checkPostalCode() {
         "Postal codes for Liechtenstein must have exactly 4 digits that start with 94: e.g. LI-9402 or 9402",
         ]
     }
-    
+
     //Constraint checker
     const country = countrySelect.value;
 
@@ -50,5 +64,23 @@ function checkPostalCode() {
 //Password validation
 //Min: 8 digits, 1 number, 1 letter, max 30 digits
 
-//Email validation
-//this@provider.com or this@server (local)
+
+//Prevent submit if any fields are invalid
+
+form.addEventListener("submit", (event) => {
+    if (!email.validity.valid || !postalCodeField.validity.valid) {
+        showError();
+        event.preventDefault();
+    }
+})
+
+function showError() {
+    if (email.validity.valueMissing) {
+        emailError.textContent = "Please enter a valid email adress.";
+    } else if (email.validity.typeMismatch) {
+        emailError.textContent = "Entered value needs to be an email adress";
+    } else if (email.validity.tooShort) {
+        emailError.textContent = `Email should be at least ${email.minLength} charactes long.`
+    }
+    emailError.className = "error active";
+}
