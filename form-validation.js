@@ -30,15 +30,22 @@ function checkPostalCode() {
         ],
         li: [
         "^(LI-)?\\94d{2}$",
-        "Postal codes for Lichtenstein must have exactly 4 digits that start with 94: e.g. LI-9402 or 9402",
+        "Postal codes for Liechtenstein must have exactly 4 digits that start with 94: e.g. LI-9402 or 9402",
         ]
-    };
-}
+    }
+    
+    //Constraint checker
+    const country = countrySelect.value;
 
-const country = countrySelect.value;
+    const constraint = new RegExp(constraints[country][0], "");
+    console.log(constraint);
 
-const constraint = new RegExp(constraints[country][0], "");
-console.log(constraint);
+    if (constraint.test(postalCodeField.value)) {
+        postalCodeField.setCustomValidity("");
+    } else {
+        postalCodeField.setCustomValidity(constraints[country][1]);
+    }
+};
 
 //Password validation
 //Min: 8 digits, 1 number, 1 letter, max 30 digits
