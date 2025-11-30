@@ -8,7 +8,7 @@ email.addEventListener("input", (event)=> {
     if (email.validity.valid) {
         emailError.textContent = ""; //Remove message if mail is valid
     } else {
-        showError();
+        showError("email");
     }
 });
 
@@ -20,6 +20,7 @@ email.addEventListener("input", (event)=> {
 //LI - 4 digits - 9490 (Always starts with 94)
 const countrySelect = document.getElementById("country");
 const postalCodeField = document.getElementById("postal-code");
+const postalCodeError = document.querySelector("#postal-code + span.error");
 
 countrySelect.addEventListener("change", checkPostalCode);
 postalCodeField.addEventListener("input", checkPostalCode);
@@ -52,12 +53,11 @@ function checkPostalCode() {
     const country = countrySelect.value;
 
     const constraint = new RegExp(constraints[country][0], "");
-    console.log(constraint);
 
     if (constraint.test(postalCodeField.value)) {
-        postalCodeField.setCustomValidity("");
+        postalCodeError.textContent = `${postalCodeField.setCustomValidity("")}` //Remove message if mail is valid
     } else {
-        postalCodeField.setCustomValidity(constraints[country][1]);
+        showError("postal");
     }
 };
 
@@ -74,13 +74,17 @@ form.addEventListener("submit", (event) => {
     }
 })
 
-function showError() {
-    if (email.validity.valueMissing) {
-        emailError.textContent = "Please enter a valid email adress.";
-    } else if (email.validity.typeMismatch) {
-        emailError.textContent = "Entered value needs to be an email adress";
-    } else if (email.validity.tooShort) {
-        emailError.textContent = `Email should be at least ${email.minLength} charactes long.`
+function showError(field) {
+    if (field == "email") {
+        if (email.validity.valueMissing) {
+            emailError.textContent = "Please enter a valid email adress.";
+        } else if (email.validity.typeMismatch) {
+            emailError.textContent = "Entered value needs to be an email adress";
+        } else if (email.validity.tooShort) {
+            emailError.textContent = `Email should be at least ${email.minLength} charactes long.`
+        }
+        emailError.className = "error active";
+    } else if (field == "postal") {
+        postalCodeError.textContent = `${constraints[country][1]}`
     }
-    emailError.className = "error active";
 }
